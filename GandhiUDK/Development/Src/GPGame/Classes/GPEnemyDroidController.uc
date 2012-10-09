@@ -30,6 +30,7 @@ event Possess(Pawn inPawn, bool bVehicleTransition)
 	Super.Possess(inPawn, bVehicleTransition);
 	DroidPawn = GPEnemyDroidPawn(inPawn);
 	ROF = Pawn.Weapon.GetFireInterval(0);
+	SZ = GPEnemyDroidPawn(inPawn).SoundZ;
 }
 
 exec function ToggleShield()

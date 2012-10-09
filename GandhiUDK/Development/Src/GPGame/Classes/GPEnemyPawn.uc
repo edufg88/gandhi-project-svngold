@@ -6,6 +6,8 @@ var GPDroppedItemsGenerator DIG;
 var class<actor> DropClass;
 var GPSoundZone SoundZ;
 
+
+
 simulated event PostBeginPlay()
 {
 	super.PostBeginPlay();

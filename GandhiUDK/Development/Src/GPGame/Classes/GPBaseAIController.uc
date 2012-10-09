@@ -4,6 +4,7 @@ var Actor Target;
 var GPPlayerPawn Gandhi;
 var GPPlayerController GandhiCtrl;
 var() Vector TempDest;
+var GPSoundZone SZ;
 
 function GetGandhi()
 {

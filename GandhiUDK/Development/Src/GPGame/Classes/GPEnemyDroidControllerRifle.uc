@@ -106,6 +106,15 @@ function SetWarned(Pawn PwnGandhi)
 	}
 }
 
+function StopTensionSound()
+{
+	if (GPGame(WorldInfo.Game).PlayingTensionSound)
+	{
+		SZ.StopTension();
+		GPGame(WorldInfo.Game).PlayingTensionSound = false;
+	}
+}
+
 /** Warn enemies in the same PatrolZone **/
 function WarnEnemies(Pawn PwnGandhi)
 {
@@ -125,6 +134,7 @@ function WarnEnemies(Pawn PwnGandhi)
 	{
 		DroidPawn.SoundZ.PlayTension();
 		Game.PlayingTensionSound = true;
+		SetTimer(45.f, false, NameOf(StopTensionSound));
 	}
 
 }
