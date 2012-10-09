@@ -55,8 +55,7 @@ event Destroyed()
 
 function bool HandlePickupQuery(class<Inventory> ItemClass, Actor Pickup)
 {
-	if(GPDoorKey(GPDroppedPickup(Pickup).Inventory) != none && GPDoorKey(GPDroppedPickup(Pickup).Inventory).cutSceneKey
-			&& GPGame(WorldInfo.Game).PlayingTensionSound) {
+	if(GPDoorKey(GPDroppedPickup(Pickup).Inventory) != none && GPGame(WorldInfo.Game).PlayingTensionSound){//GPDoorKey(GPDroppedPickup(Pickup).Inventory).cutSceneKey) {
 		class'GPHUD'.static.showHUDText("You can't pick up this key while in combat", 3000);
 		return false;
 	}

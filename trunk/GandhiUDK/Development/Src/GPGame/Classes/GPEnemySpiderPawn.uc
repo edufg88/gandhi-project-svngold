@@ -23,7 +23,7 @@ simulated event PostBeginPlay()
 {
 	Super.PostBeginPlay();
 
-	Health = 250;
+	Health = 200;
 }
 
 // Starts everything to be a real arachnid

@@ -120,9 +120,19 @@ function SetWarned(Pawn PwnGandhi)
 	}
 }
 
+function StopTensionSound()
+{
+	if (GPGame(WorldInfo.Game).PlayingTensionSound)
+	{
+		SZ.StopTension();
+		GPGame(WorldInfo.Game).PlayingTensionSound = false;
+	}
+}
+
 /** Warn enemies in the same PatrolZone **/
 function WarnEnemies(Pawn PwnGandhi)
 {
+	local GPGame Game;
 	local GPEnemyDroidPawn P;
 	local GPPatrolZone PZ;
 	PZ = GPEnemyDroidPawn(Pawn).PatrolZ;
@@ -130,6 +140,15 @@ function WarnEnemies(Pawn PwnGandhi)
 	foreach PZ.Droids(P)
 	{
 		GPEnemyDroidController(P.Controller).SetWarned(PwnGandhi);
+	}
+
+	// Metemos sonido de tensión
+	Game = GPGame(WorldInfo.Game);
+	if (!Game.PlayingTensionSound)
+	{
+		P.SoundZ.PlayTension();
+		Game.PlayingTensionSound = true;
+		SetTimer(45.f, false, NameOf(StopTensionSound));
 	}
 }
 

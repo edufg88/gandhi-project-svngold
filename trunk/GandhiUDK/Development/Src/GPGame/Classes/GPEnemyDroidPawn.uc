@@ -114,7 +114,7 @@ simulated event PostBeginPlay()
 	//{
 	//}
 
-	Health = 300;
+	Health = 250;
 	// Añadimos las armas iniciales del Droide
 	AddDefaultInventory();
 	// Añadimos las armaduras iniciales al Droide
@@ -640,6 +640,7 @@ event TakeDamage(int Damage, Controller EventInstigator, vector HitLocation, vec
 {
 	Super.TakeDamage(Damage, EventInstigator, HitLocation, Momentum, DamageType, HitInfo, DamageCauser);
 }
+
 
 
 simulated function bool Died(Controller Killer, class<DamageType> DamageType, vector HitLocation)

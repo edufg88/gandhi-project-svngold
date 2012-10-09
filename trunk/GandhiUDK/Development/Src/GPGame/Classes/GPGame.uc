@@ -189,46 +189,7 @@ event AddDefaultInventory(Pawn Pawn)
 				}
 				if(GPInventoryManager.gotGun) GPPlayerPawn(Pawn).GiveGun();
 				if(GPInventoryManager.gotRifle) GPPlayerPawn(Pawn).GiveRifle();
-				//ForEach GPInventoryManager.InventoryActors(class'GPWeapon', GPW)
-				//{
-				//	//GPInventoryManager(Pawn.InvManager).CreateInventoryFromArchetype(GPW);
-				//	//if (GPW.WeaponName == 'LinkGun') GPPlayerPawn(Pawn).GiveGun(); /*RegetLink = true*/;
-				//	//if (GPW.WeaponName == 'ShockRifle') GPPlayerPawn(Pawn).GiveRifle(); /*RegetShock = true;*/
-				//}
 
-
-
-				//P = GPPlayerPawn(Pawn);
-				//if (GPPlayerReplicationInfo(Pawn.PlayerReplicationInfo).LastWeapon == 'LinkGun' || RegetLink)
-				//{
-				//	GPInventoryManager(Pawn.InvManager).CreateInventoryFromArchetype(GPPlayerReplicationInfo(Pawn.PlayerReplicationInfo).ClassArchetype.WeaponArchetypes[0]);
-
-				//	if (P.WeaponAmmount == 0)
-				//	{
-				//		P.IsCarryingWeapon = true;
-				//	}
-				//	else
-				//	{
-				//		P.Mesh.AttachComponentToSocket(P.LinkGunMesh, P.FundaPistolaSocketName);
-				//	}
-
-				//	P.WeaponAmmount++;
-				//}
-				
-				//if (GPPlayerReplicationInfo(Pawn.PlayerReplicationInfo).LastWeapon == 'ShockRifle' || RegetShock)
-				//{
-				//	GPInventoryManager(Pawn.InvManager).CreateInventoryFromArchetype(GPPlayerReplicationInfo(Pawn.PlayerReplicationInfo).ClassArchetype.WeaponArchetypes[1]);				
-				//	if (P.WeaponAmmount == 0)
-				//	{
-				//		P.IsCarryingWeapon = true;
-				//	}
-				//	else
-				//	{
-				//		P.Mesh.AttachComponentToSocket(P.ShockRifleMesh, P.FundaRifleSocketName);
-				//	}
-
-				//	P.WeaponAmmount++;
-				//}
 			}
 		}
 		else
@@ -479,7 +440,7 @@ function Killed(Controller Killer, Controller KilledPlayer, Pawn KilledPawn, cla
 		ScoreKill(Killer, KilledPlayer);
 	}
 
-		GPPlayerReplicationInfo(KilledPawn.PlayerReplicationInfo).PawnInventory = GPInventoryManager(KilledPawn.InvManager);
+	GPPlayerReplicationInfo(KilledPawn.PlayerReplicationInfo).PawnInventory = GPInventoryManager(KilledPawn.InvManager);
 	GPPlayerReplicationInfo(KilledPawn.PlayerReplicationInfo).LastWeapon = GPInventoryManager(KilledPawn.InvManager).oldweapon.WeaponName;
 	
 	//DiscardInventory(KilledPawn, Killer);
