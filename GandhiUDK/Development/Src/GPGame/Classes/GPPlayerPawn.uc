@@ -961,6 +961,11 @@ exec function ToggleRagDoll()
 	}
 }
 
+exec function destroyTurbine()
+{
+	turbine.destroyTurbine();
+}
+
 //exec function GetEnergy()
 //{
 //	local GPEnergyItem EI;
@@ -1149,6 +1154,16 @@ function bool DoJump( bool bUpdating )
 {
 	if(GPPlayerController(Controller).bCinematicMode) return false;
 	return Super.DoJump(bUpdating);
+}
+
+exec function ImAhurtin()
+{
+	local vector speed;
+	speed.X = 0;
+	speed.Y = 0;
+	speed.Z = 0;
+
+	TakeDamage(1000,none,speed,speed,none);
 }
 
 DefaultProperties

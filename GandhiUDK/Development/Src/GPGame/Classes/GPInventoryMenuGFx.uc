@@ -47,10 +47,10 @@ function sendInventory() {
 		}
 		else if(GPDoorKey(inv) != none) {
 			//key = GPDoorKey(inv);
-			if(GPDoorKey(inv).Used) {
-				invName = "KeyUsed";
-			}
-			else invName = "Key"$GPDoorKey(inv).getNumCode();
+			//if(GPDoorKey(inv).Used) {
+			//	invName = "KeyUsed";
+			//}
+			invName = "Key"$GPDoorKey(inv).getNumCode();
 		}
 		else {
 			life = 0;

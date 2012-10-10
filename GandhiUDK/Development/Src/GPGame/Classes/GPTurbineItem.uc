@@ -61,11 +61,17 @@ function Unequip()
 	GPPlayerPawn(InvManager.Owner).ToggleTurbine();
 }
 
-exec function destroyTurbine()
+function destroyTurbine()
 {
+	local GPPlayerPawn P;
+	P = GPPlayerPawn(InvManager.Owner);
 	Unequip();
-	GPPlayerPawn(Owner).InvManager.RemoveFromInventory(self);
-	GPPlayerPawn(Owner).turbine = none;
+	P.Mesh.DetachComponent(P.TurbineMesh);
+	P.TurbineMesh.DetachFromAny();
+	//P.TurbineMesh.SetScale(0.f);
+	P.TurbineMesh.SetHidden(true);
+	P.InvManager.RemoveFromInventory(self);
+	P.turbine = none;
 	Destroy();
 }
 
