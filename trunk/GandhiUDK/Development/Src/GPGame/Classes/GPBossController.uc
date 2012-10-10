@@ -29,12 +29,21 @@ var bool bChange;
 
 function NotifyTakeHit(Controller InstigatedBy, vector HitLocation, int Damage, class<DamageType> damageType, vector Momentum)
 {
+	local GPGame Game;
+
 	// Reassign the pawn as my enemy if it is on a different team
 	if (InstigatedBy != None && InstigatedBy.Pawn != None)
 	{
 		if (InstigatedBy.IsA('GPPlayerController'))
 		{
 			Super.NotifyTakeHit(InstigatedBy, HitLocation, Damage, damageType, Momentum);
+
+			Game = GPGame(WorldInfo.Game);
+			if (!Game.PlayingTensionSound)
+			{
+				SZ.PlayTension();
+				Game.PlayingTensionSound = true;
+			}
 
 			// Set the current enemy
 			CurrentEnemy = InstigatedBy.Pawn;

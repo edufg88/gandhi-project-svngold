@@ -35,8 +35,8 @@ event Activated()
 				{
 					// Aquí podemos meter un mensaje diciendo (La puerta está cerrada...Quieres usar la llave tal?...)
 					//Locked = false;
-					//GPKey.keyUsed();
-					GPKey.Used = true;
+					if(showText) GPKey.keyUsed();
+					//GPKey.Used = true;
 					TriggerCode = " ";
 					locked = false;
 					if(showText) class'GPHUD'.static.showHUDText("You unlocked the door", 3000, false, true);
@@ -88,7 +88,7 @@ event Activated()
  */
 static event int GetObjClassVersion()
 {
-	return Super.GetObjClassVersion() + 10;
+	return Super.GetObjClassVersion() + 11;
 }
 
 defaultproperties
