@@ -55,7 +55,7 @@ event Destroyed()
 
 function bool HandlePickupQuery(class<Inventory> ItemClass, Actor Pickup)
 {
-	if(GPDoorKey(GPDroppedPickup(Pickup).Inventory) != none && GPGame(WorldInfo.Game).PlayingTensionSound){//GPDoorKey(GPDroppedPickup(Pickup).Inventory).cutSceneKey) {
+	if(GPDoorKey(GPDroppedPickup(Pickup).Inventory) != none && GPGame(WorldInfo.Game).PlayingTensionSound && GPDoorKey(GPDroppedPickup(Pickup).Inventory).cutSceneKey) {
 		class'GPHUD'.static.showHUDText("You can't pick up this key while in combat", 3000);
 		return false;
 	}
@@ -66,6 +66,9 @@ function bool HandlePickupQuery(class<Inventory> ItemClass, Actor Pickup)
 	if(GPShockRifleItem(GPDroppedPickup(Pickup).Inventory) != none && gotRifle) {
 		Pickup.Destroy();
 		return false;
+	}
+	if(GPPuzzlePiece(GPDroppedPickup(Pickup).Inventory) != none) {
+		class'GPHUD'.static.PuzzlePicked(GPPuzzlePiece(GPDroppedPickup(Pickup).Inventory));
 	}
 	return super.HandlePickupQuery(ItemClass, Pickup);
 }

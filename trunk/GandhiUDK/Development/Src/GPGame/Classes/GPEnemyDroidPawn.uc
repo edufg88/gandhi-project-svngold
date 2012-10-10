@@ -742,6 +742,6 @@ defaultproperties
 
 	DefaultPhysics = PHYS_Walking;
 
-	FiringMultiplierRate=1.f
+	FiringMultiplierRate=2.f
 
 }

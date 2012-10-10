@@ -17,10 +17,21 @@ var (Water) AudioComponent WaterSound;
 
 var array<GPPuzzlePiece> puzs;
 var bool puzzleTime;
+var bool firstBay;
 
 exec function startPuzzle()
 {
 	puzzleTime = true;
+}
+
+exec function startBay()
+{
+	firstBay = true;
+}
+
+exec function endBay()
+{
+	firstBay = false;
 }
 
 ////////////////////////////////////
@@ -46,45 +57,45 @@ function PostBeginPlay()
 	SetTimer(20.f, true, NameOf(PlayAmbient));
 }
 
-exec function GPMap(int i)
-{
-	//ClientPrepareMapChange(name("HangarMap"), false, true);
-	//PlayerOwner.ClientCommitMapChange();
+//exec function GPMap(int i)
+//{
+//	//ClientPrepareMapChange(name("HangarMap"), false, true);
+//	//PlayerOwner.ClientCommitMapChange();
 
-	switch(i) {
-		case 0:
-			ConsoleCommand("open DefinitivoTemp");
-			break;
-		//case 1:
-		//	ConsoleCommand("open BayMarc");
-		//	break;
-		//case 2:
-		//	ConsoleCommand("open HangarTest");
-		//	break;
-		case 1:
-			ConsoleCommand("open HangarTest");
-			break;
-		//case 4:
-		//	ConsoleCommand("open PW-Sandbox-GP");
-		//	break;
-	}
-}
+//	switch(i) {
+//		case 0:
+//			ConsoleCommand("open DefinitivoTemp");
+//			break;
+//		//case 1:
+//		//	ConsoleCommand("open BayMarc");
+//		//	break;
+//		//case 2:
+//		//	ConsoleCommand("open HangarTest");
+//		//	break;
+//		case 1:
+//			ConsoleCommand("open HangarTest");
+//			break;
+//		//case 4:
+//		//	ConsoleCommand("open PW-Sandbox-GP");
+//		//	break;
+//	}
+//}
 
-exec function GPNextMap()
-{
-	local int nextMap;
+//exec function GPNextMap()
+//{
+//	local int nextMap;
 
-	switch(WorldInfo.GetMapName())
-	{
-		case "DefinitivoTemp":
-			nextMap = 1;
-			break;
-		case "HangarTest":
-			nextMap = 0;
-			break;
-	}
-	GPMap(nextMap);
-}
+//	switch(WorldInfo.GetMapName())
+//	{
+//		case "DefinitivoTemp":
+//			nextMap = 1;
+//			break;
+//		case "HangarTest":
+//			nextMap = 0;
+//			break;
+//	}
+//	GPMap(nextMap);
+//}
 
 function AddSpawnedEnemy(GPBaseAIController GPEC)
 {
