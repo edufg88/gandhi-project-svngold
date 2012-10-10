@@ -15,7 +15,7 @@ event PostBeginPlay()
 
 function bool DenyPickupQuery(class<Inventory> ItemClass, Actor Pickup)
 {
-	class'GPHUD'.static.PuzzlePicked(self);
+	//class'GPHUD'.static.PuzzlePicked(self);
 	return false;
 }
 

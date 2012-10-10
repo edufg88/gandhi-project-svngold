@@ -388,7 +388,7 @@ state BeingSiri
 		// Es la primera vez que hacemos el cambio... guardamos lo que nos interesa
 		if (bWhoAmI == -1)
 		{
-			GandhiPawn = GPPlayerPawn(self.Pawn);
+			//GandhiPawn = GPPlayerPawn(self.Pawn);
 			AISiri = GPGame(WorldInfo.Game).Siri;
 		}
 		AISiri.GotoState('PlayerControlled');
@@ -397,6 +397,8 @@ state BeingSiri
 		bWhoAmI = 1;
 		// Le decimos a Siri empiece estar controlado por nosotros
 		Siri.ChangeController(self);
+		// Guardamos el Pawn de Gandhi actual
+		GandhiPawn = GPPlayerPawn(self.Pawn);
 		// Le cambiamos el pawn
 		UnPossess();
 		Possess(GPGame(WorldInfo.Game).Siri.Siri, true);
@@ -1060,12 +1062,17 @@ exec function NextWeapon()
 		Pawn.InvManager.NextWeapon();
 }
 
+exec function CanHazShield()
+{
+	bCanUseShield=true;
+}
+
 DefaultProperties
 {	
 	CameraClass=class'GPPlayerCamera'
 	bWhoAmI=-1;
 	bCanControlSiri=false;
-	bCanUseShield=true;
+	bCanUseShield=false;
 	bIsMiniSiri=false;
 	MatineeCameraClass=class'Engine.Camera'
 

@@ -12,7 +12,7 @@ var float SightAngle;
 var GPEnemySpiderPawn GPSpider;
 var bool bParalyzed;
 
-var GPSoundZone SZ;
+//var GPSoundZone SZ;
 /**
  * Called when this actor is first instanced into the world.
  *
@@ -144,10 +144,10 @@ function WarnEnemies(Pawn PwnGandhi)
 {
 	local GPGame Game;
 	local GPEnemySpiderPawn P;
-	local GPSpiderZone SZ;
-	SZ = GPEnemySpiderPawn(Pawn).SpiderZ;
+	local GPSpiderZone SpZ;
+	SpZ = GPEnemySpiderPawn(Pawn).SpiderZ;
 
-	foreach SZ.Spiders(P)
+	foreach SpZ.Spiders(P)
 	{
 		GPEnemySpiderController(P.Controller).SetWarned(PwnGandhi);
 	}

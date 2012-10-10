@@ -475,7 +475,7 @@ function RenderCrosshair()
 		GPWeaponSiri = GPWeaponSiri(PlayerOwner.Pawn.Weapon);
 		if (GPWeaponSiri != None)
 		{
-			//GPWeaponSiri.RenderCrosshair(Self);
+			GPWeaponSiri.RenderCrosshair(Self);
 		}
 	}
 	else
