@@ -51,6 +51,8 @@ function sendInventory() {
 			//	invName = "KeyUsed";
 			//}
 			invName = "Key"$GPDoorKey(inv).getNumCode();
+			life = 0;
+			attached = false;
 		}
 		else {
 			life = 0;
