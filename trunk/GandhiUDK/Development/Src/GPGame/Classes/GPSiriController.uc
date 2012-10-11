@@ -134,7 +134,7 @@ state Follow
 	{
 		if(Gandhi != None) 
 		{
-			if (VSize(Pawn.Location - Gandhi.Location) > TeleportDistance &&  GPPlayerPawn(Gandhi).IsUnderWater == false)
+			if (VSize(Pawn.Location - Gandhi.Location) > TeleportDistance && !GPPlayerPawn(Gandhi).IsUnderWater && !GPGame(WorldInfo.Game).firstBay)
 			{
 				Pawn.SetLocation(Gandhi.Location + Vect(100,100,0));
 			}
@@ -261,7 +261,7 @@ state Attack
 
 		if(Gandhi != None) 
 		{
-			if (VSize(Pawn.Location - Gandhi.Location) > TeleportDistance &&  GPPlayerPawn(Gandhi).IsUnderWater == false)
+			if (VSize(Pawn.Location - Gandhi.Location) > TeleportDistance && !GPPlayerPawn(Gandhi).IsUnderWater && !GPGame(WorldInfo.Game).firstBay)
 			{
 				Pawn.SetLocation(Gandhi.Location + Vect(100,100,0));
 			}
